@@ -1,0 +1,7 @@
+buildscript{
+    reponsitories{
+        maven{
+            url uri('../repo')
+        }
+    }
+}
