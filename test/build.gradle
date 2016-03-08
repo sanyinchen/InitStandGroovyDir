@@ -1,7 +1,13 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
 buildscript{
-    reponsitories{
+    repositories{
         maven{
             url uri('../repo')
         }
     }
+    dependencies{
+        classpath 'com.tony.gradletools:InitStandGroovyDir:0.1'
+    }
 }
+apply plugin:'com.standard.dir'
