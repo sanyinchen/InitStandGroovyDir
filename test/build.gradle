@@ -11,3 +11,6 @@ buildscript{
     }
 }
 apply plugin:'com.standard.dir'
+standconfig{
+    roots=['/Users/sanyinchen/IdeaProjects/InitStandGroovyDir/test']
+}
