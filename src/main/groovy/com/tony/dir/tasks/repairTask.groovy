@@ -29,16 +29,14 @@ class RepairTask extends DefaultTask {
                         println "creat file dir " + f.path;
                     }
                 }
-                for (int j = 0; j < dirlist.size(); j++) {
-                    File f = new File(dirlist.get(j)+File.separator+"MainPortal.groovy");
-                    if (!f.exists() && !f.isFile()) {
-                        f.createNewFile();
-                        println "creat file " + f.path;
-                    }
-                    if(j==0){
-                        f.write(TempletBuild.helloGroovy);
-                    }
+// generate MainPortal.groovy
+                File f = new File(dirlist.get(j) + File.separator + "MainPortal.groovy");
+                if (!f.exists() && !f.isFile()) {
+                    f.createNewFile();
+                    println "creat file " + f.path;
                 }
+                f.write(TempletBuild.helloGroovy);
+
 // /Users/sanyinchen/IdeaProjects/InitStandGroovyDir/src/main/resources/META-INF/gradle-plugins/com.standard.dir.properties
             }
         }
