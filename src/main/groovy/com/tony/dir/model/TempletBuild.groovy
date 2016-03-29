@@ -44,4 +44,6 @@ class TempletBuild {
             "        }\n" +
             "    }\n" +
             "}";
+
+        static String porperty="implementation-class=com.hello.dir.MainPortal";
 }
