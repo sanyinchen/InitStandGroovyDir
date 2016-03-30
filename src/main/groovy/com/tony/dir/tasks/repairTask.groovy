@@ -37,13 +37,19 @@ class RepairTask extends DefaultTask {
                 }
                 f.write(TempletBuild.helloGroovy);
 
-// /Users/sanyinchen/IdeaProjects/InitStandGroovyDir/src/main/resources/META-INF/gradle-plugins/com.standard.dir.properties
+// create properties
                 f = new File(dirlist.get(1) + File.separator + "com.hello.properties");
                 if (!f.exists() && !f.isFile()) {
                     f.createNewFile();
                     println "creat properties file " + f.path;
                 }
                 f.write(TempletBuild.porperty);
+
+                project.exec {
+                    commandLine 'echo','gradle','init'
+                }
+
+
             }
         }
     }

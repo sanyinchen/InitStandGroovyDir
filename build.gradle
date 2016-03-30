@@ -10,7 +10,7 @@ repositories {
 }
 group="com.tony.gradletools"
 version="0.1"
-{
+uploadArchives{
     repositories {
         mavenDeployer {
             repository(url: uri('./repo'))
