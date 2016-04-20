@@ -1,0 +1,16 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+buildscript{
+    repositories{
+        maven{
+            url uri('../repo')
+        }
+    }
+    dependencies{
+        classpath 'com.tony.gradletools:InitStandGroovyDir:0.1'
+    }
+}
+apply plugin:'com.standard.dir'
+standconfig{
+    roots=['/Users/sanyinchen/IdeaProjects/InitStandGroovyDir/test/demo']
+}

@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+repositories {
+    mavenCentral()
+}
+buildscript{
+    repositories{
+        maven{
+            url uri('/Users/sanyinchen/IdeaProjects/InitStandGroovyDir/test/demo/repo')
+        }
+    }
+    dependencies{
+        classpath 'com.helloword:demo:0.1'
+    }
+}
+
+apply plugin:'com.hello'
+

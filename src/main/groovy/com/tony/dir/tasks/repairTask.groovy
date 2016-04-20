@@ -19,9 +19,9 @@ class RepairTask extends DefaultTask {
                 // check logic
                 String root = roots[ri];
                 List<String> dirlist = new ArrayList<>();
-                dirlist.add(root + File.separator + "src" + File.separator + "mian" + File.separator + "groovy" + File.separator + "com" + File.separator + "hello");
-                // dirlist.add(root + File.separator + "src" + File.separator + "mian" + File.separator + "groovy" + File.separator + "com" + File.separator + "hello" + File.separator + "tasks")
-                dirlist.add(root + File.separator + "src" + File.separator + "mian" + File.separator + "resources" + File.separator + "META-INF" + File.separator + "gradle-plugins")
+                dirlist.add(root + File.separator + "src" + File.separator + "main" + File.separator + "groovy" + File.separator + "com" + File.separator + "hello");
+                // dirlist.add(root + File.separator + "src" + File.separator + "main" + File.separator + "groovy" + File.separator + "com" + File.separator + "hello" + File.separator + "tasks")
+                dirlist.add(root + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "META-INF" + File.separator + "gradle-plugins")
                 for (int j = 0; j < dirlist.size(); j++) {
                     File f = new File(dirlist.get(j));
                     if (!f.exists() && !f.isDirectory()) {
@@ -36,7 +36,6 @@ class RepairTask extends DefaultTask {
                     println "creat groovy file " + f.path;
                 }
                 f.write(TempletBuild.helloGroovy);
-
 // create properties
                 f = new File(dirlist.get(1) + File.separator + "com.hello.properties");
                 if (!f.exists() && !f.isFile()) {
@@ -44,11 +43,20 @@ class RepairTask extends DefaultTask {
                     println "creat properties file " + f.path;
                 }
                 f.write(TempletBuild.porperty);
-
-                project.exec {
-                    commandLine 'echo','gradle','init'
+// create build.gradle
+                f = new File(root + File.separator + 'build.gradle');
+                if (!f.exists() && !f.isFile()) {
+                    f.createNewFile();
+                    println("creat build.gradle");
                 }
-
+                f.write(TempletBuild.buildTeml);
+// create seeings.gradle
+                f = new File(root + File.separator + 'settings.gradle');
+                if (!f.exists() && !f.isFile()) {
+                    f.createNewFile();
+                    println("creat settings.gradle");
+                }
+                f.write(TempletBuild.setTing);
 
             }
         }
